@@ -1,0 +1,22 @@
+.create {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+    color: rgb(76, 114, 147);
+}
+.button {
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(145, 43, 43);
+    cursor: pointer;
+}
+.title {
+    justify-content: space-around;
+    color: rgb(76, 114, 147);
+
+}
+.subtitle {
+    justify-content: space-around;
+    color: rgb(79, 116, 149);
+}

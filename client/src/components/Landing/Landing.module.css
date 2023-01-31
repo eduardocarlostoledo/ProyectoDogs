@@ -1,0 +1,20 @@
+.button {
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(145, 43, 43);
+    cursor: pointer;
+}
+
+.div {
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+   
+}
+
+.h1 {
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+    
+}

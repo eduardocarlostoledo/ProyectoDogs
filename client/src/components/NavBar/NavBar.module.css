@@ -1,0 +1,36 @@
+.link {
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.button {
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(202, 1, 1);
+    color: aliceblue;
+    cursor: pointer;
+}
+.submit {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: whitesmoke;
+    margin: 0 auto 30px;
+  }
+  
+  .search {
+    font-size: 16px;
+    border: none;
+    padding: 4px 16px;
+  }
