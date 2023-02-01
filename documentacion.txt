@@ -1,0 +1,43 @@
+Documentación: 
+api/index.js
+
+En la primera línea se está importando un archivo llamado "app.js" que probablemente contiene la configuración y la configuración del servidor Express.
+
+En la segunda línea se está importando un archivo llamado "db.js" que probablemente contiene la configuración de la conexión a la base de datos y la importación de los modelos de la base de datos.
+
+En la tercera línea se está utilizando una destructuración para importar la variable "PORT" de "process.env". La variable de entorno PORT se utiliza para especificar el puerto en el que se ejecutará el servidor.
+
+En la siguiente línea se está sincronizando todos los modelos de la base de datos de una vez. conn es una variable que contiene una instancia de la conexión a la base de datos.
+
+En la línea "conn.sync({ force: true })" se esta utilizando el método "sync" de Sequelize para sincronizar los modelos con la base de datos, el parametro force: true hace que se elimine toda la data existente en la tabla antes de crearla nuevamente.
+
+En el método ".then" se está utilizando el método "listen" de la variable "server" para iniciar el servidor en el puerto especificado en la variable "PORT".
+
+En el método ".catch" se está manejando el caso de error que se puede generar en la conexión de la base de datos, si se produce un error se imprime en consola el error.
+
+src/app.js
+
+
+
+src/db.js
+
+
+
+Modelos
+
+modelDog.js
+
+El modelo define varios campos como weigth, height, id, name, life_span y origin. Cada campo tiene un tipo de dato específico y validaciones para asegurar que los datos guardados sean válidos.
+
+El campo weight utiliza el tipo de dato STRING y una validación is para asegurar que el formato del peso sea un rango numérico de la forma "AA-AA".
+El campo height utiliza el tipo de dato STRING y varias validaciones para asegurar que la altura está dentro de un rango específico (entre 20 y 200 cm) y tiene un formato válido (AA-AA).
+El campo id utiliza el tipo de dato UUID y se establece como clave primaria.
+El campo name utiliza el tipo de dato STRING y varias validaciones para asegurar que el nombre es válido y único en la base de datos.
+El campo life_span utiliza el tipo de dato STRING y una validación is para asegurar que el formato de años sea un rango numérico de la forma "AA-AA".
+El campo origin utiliza el tipo de dato ENUM y varias validaciones para asegurar que el origen está dentro de los valores válidos.
+
+modelTemperamento.js
+
+Controladores
+
+Routes

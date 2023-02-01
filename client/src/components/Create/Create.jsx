@@ -29,12 +29,6 @@ export default function Create() {
     console.groupEnd();
   }, [dog, dispatch]);
 
-  // const handleSubmit = useCallback((e) => {
-  //   e.preventDefault();
-  //   dispatch(postDog(dog));
-  // }, [dog, dispatch]);
-  // console.log("handlesubmitOK",dog);
-
   return (
     <div >
         <h3 className={style.title}>Create Dog Race</h3>
