@@ -89,10 +89,10 @@ describe("DELETE /dogs/:idRaza", () => {
     })
 })
 
-describe("GET /temperaments", () => {
+describe("GET /temperament", () => {
 
-    test("devolver status 200 y todos los temperamentos", async () => {
-        const response = await agent.get("/temperaments")
+    test("devolver status 200 y todos los temperament", async () => {
+        const response = await agent.get("/temperament")
         expect(response.statusCode).toBe(200)
         expect(response.body).toHaveLength(54)
     })

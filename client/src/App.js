@@ -5,6 +5,8 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './components/Home/Home.jsx';
 import Create from "./components/Create/Create"
 import Detail from './components/Detail/Detail.jsx';
+import React from 'react';
+
 
 function App() {
   return (

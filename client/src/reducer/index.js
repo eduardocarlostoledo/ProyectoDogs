@@ -4,7 +4,7 @@ const initialState = {
     isLoading: false,
     dogs: [],    
     dogsView: [],
-    temperaments: []
+    temperament: []
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -32,15 +32,15 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 dog: action.payload
             };
-        case 'GET_TEMPERAMENTS':
+        case 'GET_TEMPERAMENT':
             return {
                 ...state,
-                temperaments: action.payload
+                temperament: action.payload
             };
         case 'FILTER':
             let filteredDogs = state.dogs;
             if (action.payload[0] !== "all") filteredDogs = filteredDogs.filter(dog => ((action.payload[0] === "api") === dog.fromAPI));
-            if (action.payload[1] !== "all") filteredDogs = filteredDogs.filter(dog => dog.temperaments.includes(action.payload[1]));
+            if (action.payload[1] !== "all") filteredDogs = filteredDogs.filter(dog => dog.temperament.includes(action.payload[1]));
             return {
                 ...state,
                 dogsView: filteredDogs

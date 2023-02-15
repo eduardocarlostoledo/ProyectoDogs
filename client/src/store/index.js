@@ -1,20 +1,23 @@
-import {configureStore} from '@reduxjs/toolkit';
-import thunk from "redux-thunk";
-import rootReducer from "../reducer/index";
+// funciona pero falla
+// import { createStore, applyMiddleware } from "redux";
+// import {composeWithDevTools} from 'redux-devtools-extension' // npm i redux-devtools-extension
+// import thunk from 'redux-thunk'
+// import rootReducer from "../reducer/index";
 
-const store = configureStore({
-    middleware: [thunk],
-    reducer: rootReducer
-  });
+// const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+// export default store;
 
-export default store;
+// //esto funciona pero falla el post <<<<------CORRE PERO NO POST
+// import {configureStore} from '@reduxjs/toolkit';
+// import thunk from "redux-thunk";
+// import rootReducer from "../reducer/index";
 
+// const store = configureStore({
+//     middleware: [thunk],
+//     reducer: rootReducer
+//   });
 
-
-
-
-
-
+// export default store;
 
 
 // /* Importing the configureStore function from the reduxjs/toolkit library. */
@@ -31,18 +34,17 @@ export default store;
 
 // export default store;
 
-//  import { applyMiddleware, createStore } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from "../reducer/index";
 
-// import rootReducer from "../reducer/index";
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
+);
 
-// const store = createStore(
-//     rootReducer,
-//     composeWithDevTools(applyMiddleware(thunk))
-// );
-
-// export default store;
+export default store;
 
 // //Uso el Middleware Thunk para Acciones Asíncronas por bugs en actions front/back
 // import {configureStore} from '@reduxjs/toolkit';

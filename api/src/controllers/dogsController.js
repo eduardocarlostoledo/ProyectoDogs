@@ -82,22 +82,6 @@ const apiDogs = async () => {
     return dogs;
   }
 
-//   async function dogsByDatabase(name){ // me traigo todo de la base de datos incluyendo los temperamentos
-//    if (name) {
-//     let dog = await Dog.findAll({where:{name:{[Op.iLike]: '%' + name + '%' }}}) //esto me busca ignorando MatchCase
-//    } else {
-//     return await Dog.findAll({
-//       include: {
-//           model: Temperamento,
-//           attributes: ['name'],
-//           through: {
-//               attributes: [],
-//           },
-//       }
-//   });
-//    }    
-// };
-
 async function dogsByDatabase(){ 
   return await Dog.findAll({
       include: {
@@ -138,14 +122,27 @@ const getAllDogs = async(name) => {
     return results;
   }
 }
-            
-const createDog = async (name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, image, temperament) => {
-    if (!name || !height_min || !weight_max || !life_span_min || !height_max || !weight_min || !life_span_max || !temperament) {
+
+const createDog = async (dog) => {
+  console.log("CREATEDOG CONTROLLER DATOS", dog);
+  try {
+    const { name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, image, temperament } = dog;
+    if (
+      !name || 
+      !height_min || 
+      !height_max || 
+      !weight_min || 
+      !weight_max || 
+      !life_span_min || 
+      !life_span_max || 
+      !temperament
+      ) {
+
       throw new Error(
         "Faltan datos para registrar un nuevo perro en la base de datos"
       );
     } else {
-    try {
+
       const newDog = await Dog.create({
         name,        
         height_min,
@@ -160,12 +157,13 @@ const createDog = async (name, height_min, height_max, weight_min, weight_max, l
         temperament
       });
       return (newDog);
-      }   
-     catch (error) {
-      throw new Error(`Error al crear un nuevo perro: ${error.message}`);
-    }
-  };
+    }   
+
+  } catch (error) {
+    throw new Error("Error en el controlador al crear un nuevo perro");
+  } 
 }
+
 const allTemps = async () => {
   const temps = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
 
@@ -184,4 +182,4 @@ const allTemps = async () => {
     return findTemps;
 }
 
-module.exports = {apiDogs, dogsByDatabase, getAllDogs, dogIdApi, getDogIdDb, getAllDogsID, createDog, allTemps}
+module.exports = { apiDogs, dogsByDatabase, getAllDogs, dogIdApi, getDogIdDb, getAllDogsID, createDog, allTemps };

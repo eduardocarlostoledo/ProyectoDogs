@@ -1,8 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-export default function Card({id,name, image, temperaments, weight}) {
-    const temperamentList = temperaments.map(temperament => <button key={temperament}>{temperament}</button>);
+export default function Card({id,name, image, temperament, weight}) {
+    const temperamentList = temperament.map(temperament => <button key={temperament}>{temperament}</button>);
     return (
         <Link to={`/detail/${id}`} style={{textDecoration: 'none'}}>
             <div >

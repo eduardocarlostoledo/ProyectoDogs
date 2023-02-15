@@ -34,7 +34,7 @@ export default function Home() {
                                             id={dog.id}
                                             name={dog.name}
                                             image={dog.image}
-                                            temperaments={dog.temperaments}
+                                            temperament={dog.temperament}
                                             weight={dog.weight}/>)}
             </div>            
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
 //           <p>Weight: {dog.weight}</p>
 //           <p>Height: {dog.height}</p>
 //           <p>Lifespan: {dog.lifespan}</p>
-//           <p>Temperaments: {dog.temperaments}</p>
+//           <p>Temperaments: {dog.temperament}</p>
 //         </div>
 //       ))}
 //     </div>

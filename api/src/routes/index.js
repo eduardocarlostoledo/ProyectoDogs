@@ -13,15 +13,16 @@ router.get('/temperament', async (req, res) => {
         res.status(404).send(error.message);
     }
 })
-
+ 
 router.post("/dog", async (req, res) => {
-    try {
-        const { name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, image, temperaments } = req.body;
-        const newDog = await createDog(name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, image, temperaments);
-        return res.status(201).json({ message: "Perro creado con éxito", newDog });
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
-    }
+  try {
+    let dog = req.body;
+    console.log(dog);
+    const newDog = await createDog(dog);
+    res.status(201).send({ status: "OK", data: dog });
+  } catch (error) {
+    return res.status(400).send({ error: error.message });
+  }
 });
 
 router.get('/dogs/:id', async (req, res) => {
@@ -40,15 +41,10 @@ router.get('/dogs/:id', async (req, res) => {
 router.get('/dogs', async (req, res) => {
     const {name} = req.query
     try {        
-        let results = await getAllDogs(name);//agrego name
-        //let totalDogs = results.find((elem) => elem.name == (name));
+        let results = await getAllDogs(name);
                 
         res.status(200).json(results);    
-        // else {
-        //     let results = await getAllDogs();
-        //     let totalDogs = results.data;
-        //     res.status(200).json(totalDogs);
-        // }
+       
     } catch (error) {
         res.status(400).json({error:error.message});        
     }

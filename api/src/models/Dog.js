@@ -25,34 +25,7 @@ module.exports = (sequelize) => {
         }
       }
     },    
-    height_min: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          min: {
-              args: 10,
-              msg: "La altura mínima permitida es de 10 Centímetros."
-          },
-          max: {
-              args: 150,
-              msg: "La Altura máxima permitida es de 150 Centímetros."
-          }
-        }
-    },
-    height_max: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: {
-            args: 10,
-            msg: "La altura mínima permitida es de 10 Centímetros."
-        },
-        max: {
-            args: 150,
-            msg: "La Altura máxima permitida es de 150 Centímetros."
-        }
-      }
-  },
+    
     weight_min: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -81,6 +54,34 @@ module.exports = (sequelize) => {
         }
     }
     },
+    height_min: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          min: {
+              args: 10,
+              msg: "La altura mínima permitida es de 10 Centímetros."
+          },
+          max: {
+              args: 150,
+              msg: "La Altura máxima permitida es de 150 Centímetros."
+          }
+        }
+    },
+    height_max: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: {
+            args: 10,
+            msg: "La altura mínima permitida es de 10 Centímetros."
+        },
+        max: {
+            args: 150,
+            msg: "La Altura máxima permitida es de 150 Centímetros."
+        }
+      }
+  },
     life_span_min: {
       type: DataTypes.INTEGER,
       validate: {
@@ -109,6 +110,6 @@ module.exports = (sequelize) => {
     },
     image : {
       type: DataTypes.TEXT
-    },
+    }
   });  
 };

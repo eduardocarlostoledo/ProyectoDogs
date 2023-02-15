@@ -94,7 +94,7 @@ describe('Routes', () => {
         .expect(400) 
     });
   });
-  describe('GET /temperaments', () => {
+  describe('GET /temperament', () => {
     it('should get 200', () => {
       agent
         .get('/dogs')

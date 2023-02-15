@@ -23,7 +23,7 @@ export default function Detail() {
                     <h5>Height: {dog[0].height}</h5>
                     <h5>Lifespan: {dog[0].lifespan}</h5>
                     <h5>Temperaments:</h5>
-                    {dog[0].temperaments?.map(temperament => (
+                    {dog[0].temperament?.map(temperament => (
                         <button key={temperament}>
                             {temperament}
                         </button>

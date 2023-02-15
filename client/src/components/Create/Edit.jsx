@@ -7,10 +7,10 @@ import { editDog, getAllTemperaments } from "../../redux/actions/actions";
 export default function editDog() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const allTemps = useSelector((state) => state.temperaments);
+  const allTemps = useSelector((state) => state.temperament);
   let tempsName = allTemps.map((t) => t.name).sort();
 
-// ACÁ TEMPERAMENTS SIEMPRE ES UN ARRAY
+// ACÁ TEMPERAMENT SIEMPRE ES UN ARRAY
 
   const [errors, setErrors] = useState("");
 
@@ -20,7 +20,7 @@ export default function editDog() {
     maxHeight: "",
     minWeight: "",
     maxWeight: "",
-    temperaments: [],
+    temperament: [],
     min_life_span: "",
     max_life_span: "",
     imgUrl: "",
@@ -47,17 +47,17 @@ export default function editDog() {
   }
 
   function handleSelect(e) {
-    if (!dog.temperaments.includes(e.target.value))
+    if (!dog.temperament.includes(e.target.value))
       setDog({
         ...dog,
-        temperaments: [...dog.temperaments, e.target.value],
+        temperament: [...dog.temperament, e.target.value],
       });
   }
 
   const handleDelete = (t) => {
     setDog({
       ...dog,
-      temperaments: dog.temperaments.filter((temp) => temp !== t),
+      temperament: dog.temperament.filter((temp) => temp !== t),
     });
   };
 
@@ -193,11 +193,11 @@ export default function editDog() {
           })}
         </select>
         <ul>
-          {dog.temperaments.map((t) => {
+          {dog.temperament.map((t) => {
             return (
               <li>
                 <div
-                  key={dog.temperaments.indexOf(t)}
+                  key={dog.temperament.indexOf(t)}
             
                 >
                   {t}
